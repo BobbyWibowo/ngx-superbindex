@@ -56,6 +56,32 @@
             </head>
             <body>
                 <ol aria-label="asset list" is="asset-list" class="asset-list">
+                    <li id="parent" is="asset-item">
+                        <xsl:attribute name="class">
+                            <xsl:text>asset-item asset-item--directory</xsl:text>
+                        </xsl:attribute>
+
+                        <a is="asset-link">
+                            <xsl:attribute name="aria-label">
+                                <xsl:text>directory ..</xsl:text>
+                            </xsl:attribute>
+
+                            <xsl:attribute name="data-name">
+                                <xsl:text>..</xsl:text>
+                            </xsl:attribute>
+
+                            <xsl:attribute name="href">
+                                <xsl:text>../</xsl:text>
+                            </xsl:attribute>
+
+                            <xsl:attribute name="class">
+                                <xsl:text>asset-link asset-link--directory</xsl:text>
+                            </xsl:attribute>
+
+                            <xsl:text>..</xsl:text>
+                        </a>
+                    </li>
+
                     <xsl:for-each select="list/*">
                         <li is="asset-item">
                             <xsl:attribute name="class">

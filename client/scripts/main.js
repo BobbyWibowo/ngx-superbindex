@@ -6,6 +6,10 @@ function main() {
     AssetLink.define()
     AssetItem.define()
     AssetList.define()
+
+    if (window.location.pathname === '/') {
+        document.querySelector('#parent').style.display = 'none'
+    }
 }
 
 document.addEventListener('DOMContentLoaded', main)
