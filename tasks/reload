@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 main() {
-	nginx -s reload
+	sudo nginx -s reload
 }
 
 . "$(dirname $0)/run.sh"
