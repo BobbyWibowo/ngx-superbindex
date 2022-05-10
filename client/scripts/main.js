@@ -7,17 +7,23 @@ function main() {
     AssetItem.define()
     AssetList.define()
 
+    const SHOW_LAST_DIR_ONLY = false
+
     let title = `${window.location.hostname} | superbindex`
 
     if (window.location.pathname === '/') {
         document.querySelector('#parent').style.display = 'none'
     } else {
         try {
-            const dirnames = decodeURIComponent(window.location.pathname)
+            const decoded = decodeURIComponent(window.location.pathname)
                 .replace(/(^\/|\/$)/g, '')
-                .split('/')
 
-            title = `${dirnames[dirnames.length - 1]} - ${title}`
+            if (SHOW_LAST_DIR_ONLY) {
+                const dirnames = decoded.split('/')
+                title = `${dirnames[dirnames.length - 1]} - ${title}`
+            } else {
+                title = `${decoded} - ${title}`
+            }
         } catch (error) {
             console.error(error)
         }
